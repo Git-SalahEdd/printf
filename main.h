@@ -11,5 +11,5 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-void myloop(const char *f, ...);
+
 #endif

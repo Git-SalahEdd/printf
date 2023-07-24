@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	char *s;
 	va_list list;
 
-	va_start(list, f);
+	va_start(list, format);
 	if (!format || (format[0] == '%' && !format[1]))
 	{
 		return (-1);
@@ -21,12 +21,12 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	while (f[i])
+	while (format[i])
 	{
-		if (f[i] == '%')
+		if (format[i] == '%')
 		{
 			i++;
-			switch (f[i])
+			switch (format[i])
 			{
 				case 'c':
 					_putchar(va_arg(list, int));
@@ -46,10 +46,6 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 			}
-		}
-		else
-		{
-			_putchar(f[i]);
 		}
 		i++;
 	}
