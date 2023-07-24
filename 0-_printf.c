@@ -8,6 +8,11 @@
 
 int _printf(const char *format, ...)
 {
+	int i = 0, j = 0;
+	char *s;
+	va_list list;
+
+	va_start(list, f);
 	if (!format || (format[0] == '%' && !format[1]))
 	{
 		return (-1);
@@ -16,22 +21,6 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	myloop(format);
-	return (0);
-}
-
-/**
-*myloop - to avoid error morethan 40line in a function
-*@format: from printf
-*/
-
-void myloop(const char *f, ...)
-{
-	int i = 0, j = 0;
-	char *s;
-	va_list list;
-
-	va_start(list, f);
 	while (f[i])
 	{
 		if (f[i] == '%')
@@ -65,4 +54,5 @@ void myloop(const char *f, ...)
 		i++;
 	}
 	va_end(list);
+	return (0);
 }
