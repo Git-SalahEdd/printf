@@ -18,13 +18,13 @@ int main(void)
 	/**len1 = _printf("%");
 		printf("%d" ,len1);*/
 	len1 = _printf("%s", s);
-	printf("%d" ,len1);
+	printf("%d\n" ,len1);
 	len1 = _printf("hi %c", 'x');
-	printf("%d" ,len1);
+	printf("%d\n" ,len1);
 	len1 = printf("%s", s);
-	printf("%d" ,len1);
+	printf("%d\n" ,len1);
 	len1 = printf("hi %c", 'x');
-	printf("%d" ,len1);
+	printf("%d\n" ,len1);
 	printf("\n");
 	return (0);
 }

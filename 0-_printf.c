@@ -27,52 +27,55 @@ int chk(const char *format)
 
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0;
-	char *s;
+	int i = 0, k = 0;
+	const char *s;
 	va_list list;
 
 	va_start(list, format);
 	if (chk(format) == -1)
 		return (-1);
-	if (format)
-    {
-	while (*format)
+	for (; format != NULL; k++)
 	{
-		if (*format == '%')
-		{
-			format++;
-			switch (*format)
-			{
-				case 'c':
-					i += _putchar(va_arg(list, int));
+		if (format[k] == '%')
+		{ k++;
+			switch (format[k])
+			{ case 'c':
+				i += _putchar(va_arg(list, int));
 					break;
 				case 's':
 					s = va_arg(list, char *);
-					if(!(s))
-						s = "(null)";
-					while (s[j] != '\0')
-					{
-						i += _putchar(s[j]);
-						j++;
-					}
+					if (!(s))
+					{ s = "(null)"; }
+						i += str(s);
 					break;
 				case '%':
 					i += _putchar('%');
 					break;
 				default:
 					i += _putchar('%');
-					i += _putchar(*format);
-					break;
-			}
-		}
-	format++;
-	}
-    }
-	else
-	{
-		va_end(list);
-		return (i);
-	}
+					i += _putchar(format[k]);
+					break; } }
+		else
+		{ i += str(format);
+	      	break;} }
 	va_end(list);
 	return (i);
+}
+
+/**
+*str - print str
+*@s: str
+*Return: final res
+*/
+
+int  str(const char *s)
+{
+	int i = 0;
+while(*s)
+{
+	_putchar(*s);
+	s++;
+	i++;
+}
+return (i);
 }
