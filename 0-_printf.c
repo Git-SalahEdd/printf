@@ -68,7 +68,7 @@ int _printf(const char *format, ...)
     }
 	else
 	{
-		va_end(args);
+		va_end(list);
 		return (-1);
 	}
 	chk(format);
