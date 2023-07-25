@@ -32,6 +32,8 @@ int _printf(const char *format, ...)
 	va_list list;
 
 	va_start(list, format);
+	if (format)
+    {
 	while (*format)
 	{
 		if (*format == '%')
@@ -62,6 +64,12 @@ int _printf(const char *format, ...)
 		}
 		_putchar(*format);
 	format++;
+	}
+    }
+	else
+	{
+		va_end(args);
+		return (-1);
 	}
 	chk(format);
 	va_end(list);
