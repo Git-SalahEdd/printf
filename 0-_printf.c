@@ -35,8 +35,10 @@ int _printf(const char *format, ...)
 	if (chk(format) == -1)
 	{ return (-1); }
 	if (format)
-	{ while (*format)
-		{ if (*format == '%')
+	{
+		while (*format)
+		{
+			if (*format == '%')
 		{ format++;
 			switch (*format)
 			{ case 'c':
