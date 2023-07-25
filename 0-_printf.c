@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 					s = va_arg(list, char *);
 					if (!(s))
 					{ s = "(null)"; }
-						i += str(s);
+					i += str(s);
 					break;
 				case '%':
 					i += _putchar('%');
@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 					i += _putchar(format[k]);
 					break; } }
 		else
-		{ i += str(format);
-			break; } }
+		{ i += str(*format);
+		break; } }
 	va_end(list);
 	return (i); }
