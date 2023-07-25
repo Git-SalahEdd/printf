@@ -3,7 +3,7 @@
 /**
 *chk - check format
 *@format: char ptr
-*Return : finalt result
+*Return: 0 for sucess
 */
 
 int chk(const char *format)
@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 	if (chk(format) == -1)
-		return (-1);
+	{ return (-1); }
 	for (; format != NULL; k++)
 	{
 		if (format[k] == '%')
@@ -57,25 +57,6 @@ int _printf(const char *format, ...)
 					break; } }
 		else
 		{ i += str(format);
-	      	break;} }
+			break; } }
 	va_end(list);
-	return (i);
-}
-
-/**
-*str - print str
-*@s: str
-*Return: final res
-*/
-
-int  str(const char *s)
-{
-	int i = 0;
-while(*s)
-{
-	_putchar(*s);
-	s++;
-	i++;
-}
-return (i);
-}
+	return (i); }
