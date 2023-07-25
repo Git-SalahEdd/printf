@@ -1,23 +1,22 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
 *chk - check format
 *@format: char ptr
-* Return : finalt result
+*Return : finalt result
 */
 
-int chk(const char *format)
+void chk(const char *format)
 {
 	if (!format || (format[0] == '%' && !format[1]))
 	{
-		return (-1);
+		exit(-1);
 	}
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 	{
-		return (-1);
+		exit(-1);
 	}
-	return (chk(format++));
+	EXIT_SUCCESS;
 }
 
 /**
@@ -48,14 +47,12 @@ int _printf(const char *format, ...)
 					s = va_arg(list, char *);
 					while (s[j] != '\0')
 					{
-						_putchar(s[j]);
+						i += _putchar(s[j]);
 						j++;
-						i++;
 					}
 					break;
 				case '%':
-					_putchar('%');
-					i++;
+					i += _putchar('%');
 					break;
 				default:
 					_putchar(*format);
