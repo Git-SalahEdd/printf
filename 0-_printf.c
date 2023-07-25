@@ -6,17 +6,17 @@
 *Return : finalt result
 */
 
-void chk(const char *format)
+int chk(const char *format)
 {
 	if (!format || (format[0] == '%' && !format[1]))
 	{
-		exit(-1);
+		return (-1);
 	}
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 	{
-		exit(-1);
+		return (-1);
 	}
-	EXIT_SUCCESS;
+	return (0);
 }
 
 /**
@@ -32,6 +32,8 @@ int _printf(const char *format, ...)
 	va_list list;
 
 	va_start(list, format);
+	if (chk(format) == -1)
+		return (-1);
 	if (format)
     {
 	while (*format)
@@ -46,6 +48,8 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					s = va_arg(list, char *);
+					if(!(s))
+						s = "(null)";
 					while (s[j] != '\0')
 					{
 						i += _putchar(s[j]);
@@ -56,11 +60,11 @@ int _printf(const char *format, ...)
 					i += _putchar('%');
 					break;
 				default:
-					format++;
+					i += _putchar('%');
+					i += _putchar(*format);
 					break;
 			}
 		}
-		_putchar(*format);
 	format++;
 	}
     }
@@ -69,7 +73,6 @@ int _printf(const char *format, ...)
 		va_end(list);
 		return (i);
 	}
-	chk(format);
 	va_end(list);
-	return (i - 1);
+	return (i);
 }
