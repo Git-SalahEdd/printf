@@ -46,6 +46,12 @@ int _printf(const char *format, ...)
 					{ s = "(null)"; }
 					i += str(s);
 					break;
+				case 'd':
+					s = va_arg(list, int *);
+					i += str(s);
+				case 'i':
+					s = va_arg(list, int *);
+					i += str(s);
 				case '%':
 					i += _putchar('%');
 					break;
