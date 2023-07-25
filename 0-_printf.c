@@ -2,7 +2,10 @@
 #include <stdarg.h>
 
 /**
-chk - check format*/
+*chk - check format
+*@format: char ptr
+* Return : finalt result
+*/
 
 int chk(const char *format)
 {
@@ -14,7 +17,7 @@ int chk(const char *format)
 	{
 		return (-1);
 	}
-	return(0);
+	return (0);
 }
 
 /**
