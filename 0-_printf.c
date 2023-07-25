@@ -17,7 +17,7 @@ int chk(const char *format)
 	{
 		return (-1);
 	}
-	return (0);
+	return (chk(format++));
 }
 
 /**
