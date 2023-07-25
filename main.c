@@ -9,6 +9,8 @@
  */
 int main(void)
 {
-	_printf("Let's try to printf a simple sentence.\n");
+	int i = 0;
+
+	_printf("Let's try to printf a %d simple sentence.\n", i);
 	return (0);
 }

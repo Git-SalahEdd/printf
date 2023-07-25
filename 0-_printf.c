@@ -2,6 +2,22 @@
 #include <stdarg.h>
 
 /**
+chk - check format*/
+
+int chk(const char *format)
+{
+	if (!format || (format[0] == '%' && !format[1]))
+	{
+		return (-1);
+	}
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+	{
+		return (-1);
+	}
+	return(0);
+}
+
+/**
 *_printf - that produces output according to a format
 *@format: requested format
 *Return: 0 for always sucess
@@ -14,14 +30,8 @@ int _printf(const char *format, ...)
 	va_list list;
 
 	va_start(list, format);
-	if (!format || (format[0] == '%' && !format[1]))
+	if (format)
 	{
-		return (i);
-	}
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-	{
-		return (i);
-	}
 	while (*format)
 	{
 		if (*format == '%')
@@ -47,15 +57,18 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				default:
+					_putchar(*format);
 					format++;
 					break;
 			}
 		}
-		else
-		{
 		_putchar(*format);
-		}
 	format++;
+	}
+	}
+	else
+	{
+	chk(format);
 	}
 	va_end(list);
 	return (i);
