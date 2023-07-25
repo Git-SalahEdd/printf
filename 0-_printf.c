@@ -64,6 +64,7 @@ int _printf(const char *format, ...)
 					{
 						i += _putchar((num / count) % 10 + '0');
 						count /= 10;
+					}
 					break;
 				case '%':
 					i += _putchar('%');
