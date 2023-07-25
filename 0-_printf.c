@@ -42,8 +42,7 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-					_putchar(va_arg(list, int));
-					i++;
+					i += _putchar(va_arg(list, int));
 					break;
 				case 's':
 					s = va_arg(list, char *);
@@ -57,7 +56,6 @@ int _printf(const char *format, ...)
 					i += _putchar('%');
 					break;
 				default:
-					_putchar(*format);
 					format++;
 					break;
 			}
@@ -69,9 +67,9 @@ int _printf(const char *format, ...)
 	else
 	{
 		va_end(list);
-		return (-1);
+		return (i);
 	}
 	chk(format);
 	va_end(list);
-	return (i);
+	return (i - 1);
 }
