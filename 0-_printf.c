@@ -29,6 +29,7 @@ int _printf(const char *format, ...)
 {
 	int i = 0, k = 0;
 	const char *s;
+	char c;
 	va_list list;
 
 	va_start(list, format);
@@ -40,7 +41,10 @@ int _printf(const char *format, ...)
 		{ k++;
 			switch (format[k])
 			{ case 'c':
-				i += _putchar(va_arg(list, int));
+				i ++;
+				c = _putchar(va_arg(list, int));
+				if (!(c))
+				{ c = "(null)"; }
 					break;
 				case 's':
 					s = va_arg(list, char *);
