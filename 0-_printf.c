@@ -5,7 +5,6 @@
 *@format: char ptr
 *Return: 0 for sucess
 */
-
 int chk(const char *format)
 {
 	if (!format || (format[0] == '%' && !format[1]))
@@ -23,7 +22,7 @@ int chk(const char *format)
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int i = 0, num;
 	const char *s;
 	va_list list;
 
@@ -47,11 +46,17 @@ int _printf(const char *format, ...)
 					i += str(s);
 					break;
 				case 'd':
-					s = va_arg(list, int *);
-					i += str(s);
 				case 'i':
-					s = va_arg(list, int *);
-					i += str(s);
+					num = va_arg(list, int);
+					if (num < 0)
+					{
+						_putchar('-');
+						num = -num;
+					}
+					if (num / 10)
+						_printf("%d", num / 10);
+					_putchar(num % 10 + '0');
+					break;
 				case '%':
 					i += _putchar('%');
 					break;
