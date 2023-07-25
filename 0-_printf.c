@@ -69,10 +69,7 @@ int _printf(const char *format, ...)
 	format++;
 	}
 	}
-	else
-	{
 	chk(format);
-	}
 	va_end(list);
 	return (i);
 }
