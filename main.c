@@ -15,8 +15,8 @@ int main(void)
 
 	len1 = _printf("Let's try to printf a %d simple sentence.\n", i);
 	printf("%d" ,len1);
-	/**len1 = _printf("%");
-		printf("%d" ,len1);*/
+	len1 = _printf("%\n");
+	printf("%d\n" ,len1);
 	len1 = _printf("%s", s);
 	printf("%d\n" ,len1);
 	len1 = _printf("hi %c", 'x');
@@ -25,6 +25,5 @@ int main(void)
 	printf("%d\n" ,len1);
 	len1 = printf("hi %c", 'x');
 	printf("%d\n" ,len1);
-	printf("\n");
 	return (0);
 }

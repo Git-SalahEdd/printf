@@ -27,24 +27,20 @@ int chk(const char *format)
 
 int _printf(const char *format, ...)
 {
-	int i = 0, k = 0;
+	int i = 0;
 	const char *s;
-	char c;
 	va_list list;
 
 	va_start(list, format);
 	if (chk(format) == -1)
 	{ return (-1); }
-	for (; format != NULL; k++)
-	{
-		if (format[k] == '%')
-		{ k++;
-			switch (format[k])
+	if (format)
+	{ while (*format)
+		{ if (*format == '%')
+		{ format++;
+			switch (*format)
 			{ case 'c':
-				i ++;
-				c = _putchar(va_arg(list, int));
-				if (!(c))
-				{ c = "(null)"; }
+				i += _putchar(va_arg(list, int));
 					break;
 				case 's':
 					s = va_arg(list, char *);
@@ -57,10 +53,10 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					i += _putchar('%');
-					i += _putchar(format[k]);
+					i += _putchar(*format);
 					break; } }
 		else
-		{ i += str(format);
-		break; } }
+		{ i += _putchar(*format); }
+	       format++; } }
 	va_end(list);
 	return (i); }
