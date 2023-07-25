@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 					i += _putchar(format[k]);
 					break; } }
 		else
-		{ i += str(*format);
+		{ i += str(format);
 		break; } }
 	va_end(list);
 	return (i); }
