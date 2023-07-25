@@ -47,15 +47,17 @@ int _printf(const char *format, ...)
 					break;
 				case 'd':
 				case 'i':
-					num = va_arg(list, int);
-					if (num < 0)
 					{
-						_putchar('-');
-						num = -num;
+						num = va_arg(list, int);
+						if (num < 0)
+						{
+							_putchar('-');
+							num = -num;
+						}
+						if (num / 10)
+							_printf("%d", num / 10);
+						_putchar(num % 10 + '0');
 					}
-					if (num / 10)
-						_printf("%d", num / 10);
-					_putchar(num % 10 + '0');
 					break;
 				case '%':
 					i += _putchar('%');
