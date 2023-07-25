@@ -9,13 +9,9 @@
 int chk(const char *format)
 {
 	if (!format || (format[0] == '%' && !format[1]))
-	{
 		return (-1);
-	}
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
-	{
 		return (-1);
-	}
 	return (0);
 }
 
@@ -61,4 +57,5 @@ int _printf(const char *format, ...)
 		{ i += _putchar(*format); }
 	       format++; } }
 	va_end(list);
-	return (i); }
+	return (i);
+}
