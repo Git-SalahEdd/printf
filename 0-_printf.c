@@ -15,24 +15,6 @@ int chk(const char *format)
 }
 
 /**
- * print_binary - Convert unsigned integer to binary and print.
- * @num: The unsigned integer to convert and print.
- * Return: The number of characters printed.
- */
-int print_binary(unsigned int num)
-{
-	int i, count = 0;
-	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
-	for (i = 0; i < sizeof(unsigned int) * 8; i++)
-	{
-		_putchar((num & mask) ? '1' : '0');
-		num <<= 1;
-		count++;
-	}
-	return (count);
-}
-
-/**
 *_printf - that produces output according to a format
 *@format: requested format
 *Return: 0 for always sucess
@@ -86,9 +68,6 @@ int _printf(const char *format, ...)
 					break;
 				case '%':
 					i += _putchar('%');
-					break;
-				case 'b':
-					i += print_binary(va_arg(list, unsigned int));
 					break;
 				default:
 					i += _putchar('%');
