@@ -11,7 +11,5 @@ int chk(const char *format);
 int str(const char *s);
 int ptr_num(int num);
 int ptr_num2(int num);
-int  str(const char *s);
-int _print_binary(int num);
 
 #endif
