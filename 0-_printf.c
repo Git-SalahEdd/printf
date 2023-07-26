@@ -71,11 +71,6 @@ int _printf(const char *format, ...)
 					num1 = va_arg(list, int);
 					i += _print_binary(num1);
 					break;
-					case 'u':
-					unsigned int num = va_arg(list, unsigned int);
-
-					i += _print_integer(num, 10, 0);
-					break;
 				default:
 					i += _putchar('%');
 					i += _putchar(*format);
