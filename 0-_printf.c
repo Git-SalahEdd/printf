@@ -56,10 +56,8 @@ int _printf(const char *format, ...)
 					temp = num;
 					count = 1;
 					while (temp / 10 > 0)
-					{
-						temp /= 10;
-						count *= 10;
-					}
+					{ temp /= 10;
+						count *= 10; }
 					while (count > 0)
 					{
 						i += _putchar((num / count) % 10 + '0');
