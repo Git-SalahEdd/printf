@@ -6,14 +6,11 @@
 */
 int _print_binary(int num)
 {
-	int i, count = 0;
-	unsigned int mask = 1 << (sizeof(unsigned int) * 8 - 1);
+	int count = 0;
 
-	for (i = 0; i < sizeof(unsigned int) * 8; i++)
-	{
-		_putchar((num & mask) ? '1' : '0');
-		num <<= 1;
-		count++;
-	}
+	if (num >= 2)
+		count += _print_binary(num / 2);
+	putchar('0' + num % 2);
+	count++;
 	return (count);
 }
