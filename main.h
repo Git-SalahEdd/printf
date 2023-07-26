@@ -9,5 +9,6 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int chk(const char *format);
 int str(const char *s);
+int ptr_num(int num);
 
 #endif
