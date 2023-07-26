@@ -67,6 +67,10 @@ int _printf(const char *format, ...)
 				case '%':
 					i += _putchar('%');
 					break;
+				case 'b':
+					num = va_arg(list, int);
+					i += _print_binary(num);
+					break;
 				default:
 					i += _putchar('%');
 					i += _putchar(*format);
