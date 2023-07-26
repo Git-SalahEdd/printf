@@ -76,21 +76,6 @@ int _printf(const char *format, ...)
 
 					i += _print_integer(num, 10, 0);
 					break;
-				case 'o':
-					unsigned int num = va_arg(list, unsigned int);
-
-					i += _print_integer(num, 8, 0);
-					break;
-				case 'x':
-					unsigned int num = va_arg(list, unsigned int);
-
-					i += _print_integer(num, 16, 0);
-					break;
-				case 'X':
-					unsigned int num = va_arg(list, unsigned int);
-
-					i += _print_integer(num, 16, 1);
-					break;
 				default:
 					i += _putchar('%');
 					i += _putchar(*format);
