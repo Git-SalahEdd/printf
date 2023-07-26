@@ -56,8 +56,7 @@ int _printf(const char *format, ...)
 					i += _putchar('%');
 					i += _putchar(*format);
 					break; } }
-			else
-			{ i += _putchar(*format); }
+			i += _putchar(*format);
 			format++; } }
 	va_end(list);
 	return (i); }
