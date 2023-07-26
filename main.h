@@ -13,5 +13,6 @@ int ptr_num(int num);
 int ptr_num2(int num);
 int  str(const char *s);
 int _print_binary(int num);
+int _print_integer(unsigned int num, int base, int uppercase);
 
 #endif
