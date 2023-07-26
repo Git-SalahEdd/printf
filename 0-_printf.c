@@ -46,8 +46,6 @@ int _printf(const char *format, ...)
 					i += str(s);
 					break;
 				case 'd':
-					i += ptr_num2(va_arg(list, int));
-					break;
 				case 'i':
 					i += ptr_num(va_arg(list, int));
 					break;
