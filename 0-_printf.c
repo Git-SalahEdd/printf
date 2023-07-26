@@ -5,7 +5,6 @@
 *@format: char ptr
 *Return: 0 for sucess
 */
-
 int chk(const char *format)
 {
 	if (!format || (format[0] == '%' && !format[1]))
@@ -23,7 +22,7 @@ int chk(const char *format)
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int i = 0, num, temp, count;
 	const char *s;
 	va_list list;
 
@@ -47,11 +46,26 @@ int _printf(const char *format, ...)
 					i += str(s);
 					break;
 				case 'd':
-					s = va_arg(list, int *);
-					i += str(s);
 				case 'i':
-					s = va_arg(list, int *);
-					i += str(s);
+					num = va_arg(list, int);
+					if (num < 0)
+					{
+						i += _putchar('-');
+						num = -num;
+					}
+					temp = num;
+					count = 1;
+					while (temp / 10 > 0)
+					{
+						temp /= 10;
+						count *= 10;
+					}
+					while (count > 0)
+					{
+						i += _putchar((num / count) % 10 + '0');
+						count /= 10;
+					}
+					break;
 				case '%':
 					i += _putchar('%');
 					break;
@@ -59,9 +73,9 @@ int _printf(const char *format, ...)
 					i += _putchar('%');
 					i += _putchar(*format);
 					break; } }
-		else
-		{ i += _putchar(*format); }
-	       format++; } }
+			else
+			{ i += _putchar(*format); }
+			format++; } }
 	va_end(list);
 	return (i);
 }
