@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -13,5 +14,6 @@ int str(const char *s);
 int ptr_num(int num);
 int ptr_num2(int num);
 int _print_binary(int num);
+int _strncpy(char *dest, const char *src, int n);
 
 #endif
