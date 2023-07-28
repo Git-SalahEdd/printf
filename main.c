@@ -11,8 +11,9 @@ int main(void)
 {
 	int i = 0;
 	int len1;
-	char *s = NULL;
+	char *s = "AAAAAAAA";
 
+	_printf("%s%b\n", s, INT_MAX);
 	len1 = _printf("Let's try to printf a %d simple sentence.\n", i);
 	printf("%d" ,len1);
 	len1 = _printf("%\n");

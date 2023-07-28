@@ -6,11 +6,25 @@
 */
 int _print_binary(int num)
 {
-	int count = 0;
+	unsigned int bin;
+	int y = 0, z, result[32];
 
-	if (num >= 2)
-		count += _print_binary(num / 2);
-	putchar('0' + num % 2);
-	count++;
-	return (count);
+	while (bin == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	while (bin != 0)
+	{
+		result[y] = bin % 2;
+		bin /= 2;
+		y++;
+	}
+	z = y - 1;
+	while (z >= 0)
+	{
+		_putchar(result[z] + '0');
+		z--;
+	}
+	return (y);
 }
