@@ -4,9 +4,9 @@
 * @num: the integer to print
 * Return: the number of characters printed
 */
-int _print_binary(int num)
+int _print_binary(unsigned int num)
 {
-	unsigned int bin;
+	unsigned int bin = num;
 	int y = 0, z, result[32];
 
 	while (bin == 0)
