@@ -15,10 +15,11 @@ int ptr_num2(int num)
 	{
 		_putchar('-');
 		num_d = -num_d;
-		z++; }
+		z++; 
+	}
 	if (num_d / 10)
 		z += ptr_num2(num_d / 10);
-	_putchar((num_d % 10) + '0');
+	_putchar(((unsigned int) num_d % 10) + '0');
 	z++;
 	return (z);
 }
