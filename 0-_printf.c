@@ -46,23 +46,10 @@ int _printf(const char *format, ...)
 				i += str(s);
 				break;
 			case 'd':
+				i += pt_num2(va_arg(list, int));
+				break;
 			case 'i':
-				num = va_arg(list, int);
-				if (num < 0)
-				{
-					i += _putchar('-');
-					num = -num;
-				}
-				temp = num;
-				count = 1;
-				while (temp / 10 > 0)
-				{ temp /= 10;
-					count *= 10; }
-				while (count > 0)
-				{
-					i += _putchar((num / count) % 10 + '0');
-					count /= 10;
-				}
+				i += pt_num(va_arg(list, int));
 				break;
 			case '%':
 				i += _putchar('%');
