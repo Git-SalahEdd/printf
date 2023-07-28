@@ -24,7 +24,7 @@ int ptr_num(int num)
 	}
 	while (count > 0)
 	{
-		i += _putchar((unsigned int) (num / count) % 10 + '0');
+		i += _putchar(((unsigned int) (num / count)) % 10 + '0');
 		count /= 10; 
 	}
 	return (i);

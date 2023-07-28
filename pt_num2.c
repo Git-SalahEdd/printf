@@ -13,13 +13,13 @@ int ptr_num2(int num)
 
 	if (num_d < 0)
 	{
-		_putchar('-');
-		num_d = -num_d;
-		z++; 
+		putchar('-');
+		num_d = num_d;
+		z++;
 	}
 	if (num_d / 10)
-		z += ptr_num2(num_d / 10);
-	_putchar(((unsigned int) num_d % 10) + '0');
+		z += ptr_num2((unsigned int) num_d / 10);
+	putchar(((unsigned int) num_d % 10) + '0');
 	z++;
 	return (z);
 }
