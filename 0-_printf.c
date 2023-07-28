@@ -22,7 +22,7 @@ int chk(const char *format)
 
 int _printf(const char *format, ...)
 {
-	int i = 0, temp, num, count;
+	int i = 0;
 	const char *s;
 	va_list list;
 
@@ -46,10 +46,10 @@ int _printf(const char *format, ...)
 				i += str(s);
 				break;
 			case 'd':
-				i += pt_num2(va_arg(list, int));
+				i += ptr_num2(va_arg(list, int));
 				break;
 			case 'i':
-				i += pt_num(va_arg(list, int));
+				i += ptr_num(va_arg(list, int));
 				break;
 			case '%':
 				i += _putchar('%');
