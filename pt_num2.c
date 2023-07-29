@@ -8,41 +8,17 @@
 
 int ptr_num2(int num)
 {
-	int z = 0, i;
+	int num_d = num;
+	int z = 0;
 
-	if (num == INT_MAX)
+	if (num_d < 0)
 	{
-		const char maxIntStr[] = "2147483647";
-
-		for (i = 0; maxIntStr[i] != '\0'; i++)
-		{
-			z += _putchar(maxIntStr[i]);
-		}
-		return (z);
-	}
-	if (num == INT_MIN)
-	{
-		const char minIntStr[] = "-2147483648";
-
-		for (i = 0; minIntStr[i] != '\0'; i++)
-		{
-			z += _putchar(minIntStr[i]);
-		}
-		return (z);
-	}
-	if (num == 0)
-	{
-		z += _putchar('0');
-		return (z);
-	}
-	if (num < 0)
-	{
-		putchar('-');
-		num = -num;
-		z++;
-	}
-	if (num / 10 != 0)
-		z += ptr_num2((unsigned int) num / 10);
-	z += putchar('0' + (num % 10));
+		_putchar('-');
+		num_d = -num_d;
+		z++; }
+	if (num_d / 10)
+		z += ptr_num2(num_d / 10);
+	_putchar((num_d % 10) + '0');
+	z++;
 	return (z);
 }
