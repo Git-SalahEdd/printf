@@ -9,10 +9,11 @@
 int ptr_num2(int num)
 {
 	int z = 0, i;
-	
+
 	if (num == INT_MAX)
 	{
 		const char maxIntStr[] = "2147483647";
+
 		for (i = 0; maxIntStr[i] != '\0'; i++)
 		{
 			z += _putchar(maxIntStr[i]);
@@ -22,6 +23,7 @@ int ptr_num2(int num)
 	if (num == INT_MIN)
 	{
 		const char minIntStr[] = "-2147483648";
+
 		for (i = 0; minIntStr[i] != '\0'; i++)
 		{
 			z += _putchar(minIntStr[i]);
